@@ -13,7 +13,10 @@ class Ready(commands.Cog):
 
   @commands.Cog.listener('on_member_join')
   async def join(self, member):
-    add_role(993737156231168151, member.id, 993740041971048458)
+    if member.bot is False:
+      add_role(993737156231168151, member.id, 993740041971048458)
+    else:
+      add_role(993737156231168151, member.id, 993740207025311834)
 
 def setup(bot):
   bot.add_cog(Ready(bot))
